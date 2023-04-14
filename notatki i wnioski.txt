@@ -1,4 +1,0 @@
-Umieszczam tutaj informacje oraz przemyślenia wyciągnięte przeze mnie w trakcie konstrukcji tej gry.
-Założeniem jej było napisanie szachów od zera bez pomocy gotowych bibliotek czy kodu. Wszystko od wyglądu strony, przez planszę (pomijając rysowanie figur) po sztuczną inteligencję zarządzającą ruchami przeciwnika.
-
-Początkowo plansza miała być zbudowana na gridach, jednak z powodu słabej znajomości ich działania zmieniłem kierunek na divy.
