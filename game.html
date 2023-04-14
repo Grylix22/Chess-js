@@ -13,15 +13,6 @@
     <script type="text/javascript" src="chess.js" async></script>
 </head>
 
-<!-- TODO:
-System blokady ruchów niezgodnych z możliwościami danej figury
-        (np. gdy gracz chce by król przerzedł o dwa pola, lub ustawić ją w miejscu innej jego figury)
-Zrobić system wskazywania możliwych ruchów po kliknięciu danej figury (podświetlanie pól na które może iść figura)
-        Wybrać metodę i stworzyć funkcjonalność przenoszenia figur na inne pole
-    i najtrudniejsze zrobić system ruchów bota i jego AI
-        można zrobić drugą stronę gdzie plansza co ruch obraca się, tak by dwóch graczy mogło grać na jednym urządzeniu
--->
-
 <body>
     <nav>
         <div class="navbar">
@@ -61,7 +52,7 @@ Zrobić system wskazywania możliwych ruchów po kliknięciu danej figury (podś
                 <li><span>[nr]. [kolor] [figura] [poz1] -> [poz2]</span></li>
                 <li><span>[nr]. [kolor] [figura] [poz1] -> [poz2]</span></li>
             </ul>
-            <div class="game-control"><!-- zarządzanie grą, start-restart, cofnij ruch, poddaj się -->
+            <div class="game-control">
                 <div class="btn" onclick="restart()"><span>RESTART</span></div>
                 <div class="btn"><span>Cofnij</span></div>
                 <div class="btn" onclick="addFigure(58)"><span>xxx</span></div>
