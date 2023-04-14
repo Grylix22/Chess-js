@@ -4,7 +4,6 @@
 	##Wprowadzenie
 Projekt ten przedstawia grę przeglądarkową w szachy. Efektem tego projektu będzie możliwość zagrania zarówno przeciwko komputerowemu AI, jak i innemu graczowi.
 Stworzony w celu nauki javascriptu oraz poprawienia umiejętności pisania stron internetowych.
-
 	##Technologie
 HTML
 CSS
