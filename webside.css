@@ -1,0 +1,165 @@
+body {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	background-color: #29abbd;
+	font-family: 'Signika Negative', sans-serif;
+	font-size: 25px;
+	color: #070707;
+	height: 100vh;
+}
+
+h1 {
+	font-size: 30px;
+	color: rgb(0, 0, 0);
+}
+
+//menu
+nav {
+	height: 100%;
+}
+
+.navbar {
+	float: left;
+	position: fixed;
+	height: 100vh;
+	background-color: rgba(59, 59, 59);
+	z-index: 10;
+}
+
+.navbar img {
+	align-self: normal;
+	margin: 20px 0 20px 30px;
+	height: 50px;
+	width: 50px;
+	border-radius: 50%;
+}
+
+.navbar img::after {
+	content:'ChessHero'
+	color: blue;
+}
+
+ul {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	align-content: center;
+	margin: 0;
+	padding: 0;
+	width: 180px;
+	list-style-type: none;
+}
+
+.navbar ul li {
+	display: flex;
+	padding: 5px 0 5px 0;
+	width: 180px;
+}
+
+li > a {
+	display: inline-block;
+	text-decoration: none;
+	width: 100%;
+	margin: 0;
+	text-align: center;
+	vertical-align: middle;
+	color: rgb(196, 32, 32);
+}
+
+li > a:hover {
+	background-color: rgb(34, 34, 34);
+}
+
+.navbar > ul > li:hover {
+	cursor: pointer;
+	background-color: rgb(34, 34, 34);
+	
+}
+
+.motiveSwap {
+	display: flex;
+	justify-content: center;
+}
+
+.container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-left: 180px;
+}
+
+.clearfix {
+	overflow: auto;
+}
+
+.onoffswitch {
+	position: relative; width: 80px;
+	-webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+}
+
+.onoffswitch-checkbox {
+	position: absolute;
+	opacity: 0;
+	pointer-events: none;
+}
+
+.onoffswitch-label {
+	display: block; overflow: hidden; cursor: pointer;
+	border: 2px solid #999999; border-radius: 50px;
+}
+
+.onoffswitch-inner {
+	display: block; width: 200%; margin-left: -100%;
+	transition: margin 0.3s ease-in 0s;
+}
+
+.onoffswitch-inner:before, .onoffswitch-inner:after {
+	display: block; float: left; width: 50%; height: 30px; padding: 0; line-height: 30px;
+	font-size: 12px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+	box-sizing: border-box;
+}
+
+.onoffswitch-inner:before {
+	content: "LITE";
+	padding-left: 7px;
+	background-color: #E8D900; color: #000000;
+}
+
+.onoffswitch-inner:after {
+	content: "DARK";
+	padding-right: 7px;
+	background-image: url("img/dark.png");
+	background-size: 30px;
+	//background-color: #141E69;
+	color: #FFFFFF;
+	text-align: right;
+}
+
+.onoffswitch-switch {
+	display: block; width: 30px; margin: 0px;
+	background-color: #FFFFFF;
+	background-size: 200px;
+	position: absolute; top: 0; bottom: 0;
+	right: 46px;
+	border: 2px solid #999999; border-radius: 50px;
+	transition: all 0.3s ease-in 0s; 
+}
+
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+	margin-left: 0;
+}
+
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+	right: 0px; 
+}
+
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+	right: 0px; 
+	background-image: url("img/light.png");
+	background-size: 30px;
+}
+.onoffswitch-inner::after .onoffswitch-label  .onoffswitch-switch:after {
+	background-image: url("img/dark.png");
+	background-size: 30px;
+}

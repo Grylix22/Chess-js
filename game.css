@@ -1,0 +1,283 @@
+:root {
+    --light-playersbar-bg-color: #5e5e5e;
+    --light-playersbar-color: #FFFFFF;
+
+    /* kolory planszy */
+    --light-whiteGrid: #ffffff;
+    --light-blackGrid: #0bb306;
+    --light-gameboard: rgb(71, 75, 75);
+    --light-btn-bg: rgb(59, 59, 59);
+    --light-btn-hover-bg: rgb(34, 34, 34);
+}
+
+body {
+    overflow-y: hidden;
+}
+
+.container {
+    flex-direction: column;
+    height: 100vh;
+}
+
+.bar {
+    height: 65px;
+    width: calc(100vw - 180px);
+    right: 0;
+    z-index: 1;
+}
+
+.bar.enemy {
+    position: absolute;
+    top: 0;
+    background-color: var(--light-playersbar-bg-color);
+    color: #FFFFFF;
+}
+
+.bar.player {
+    position: absolute;
+    bottom: 0;
+    background-color: var(--light-playersbar-bg-color);
+    color: var(--light-playersbar-color);
+}
+
+.bar span {
+    margin-left: 50px;
+}
+
+.app { 
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 330px;
+    height: calc(8 * 80px);
+    width: calc(8 * 80px);
+    border: 2px solid black;
+  }
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.box {
+    height: 80px;
+    width: 80px;
+    font-size: 0px;
+    image-resolution: 20%;
+}
+
+.grid-w {
+    background-color: var(--light-whiteGrid);
+}
+
+.grid-b {
+    background-color: var(--light-blackGrid);
+}
+
+.gameboard-bar {
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    top: 65px;
+    right: 0;
+    height: calc(100vh - 130px);
+    width: 300px;
+    background-color: var(--light-gameboard);
+}
+
+.gameboard-bar ul {
+    height: calc(100% - 100px);
+    width: calc(100% - 1px);
+    align-items: center;
+    overflow-y: auto;
+    word-wrap: break-word;
+    border-top: 1px solid rgb(26, 5, 82);
+    border-left: 1px solid rgb(26, 5, 82);
+    border-bottom: 1px solid rgb(26, 5, 82);
+    
+}
+
+.gameboard-bar span {
+    margin-left: 50px;
+    font-size: 35px;
+    font-weight: 800;
+}
+
+.gameboard-bar li {
+    height: 30px;
+    width: 100%;
+    background-color: rgb(71, 75, 75);
+    overflow: hidden;
+    border-bottom: 1px solid black;
+}
+
+.gameboard-bar li:first-of-type {
+    border-top: 2px solid red;
+}
+
+.gameboard-bar li:last-of-type {
+    border-bottom: 2px solid red;
+}
+
+.gameboard-bar li span {
+    font-size: 20px;
+}
+
+.game-control {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100px;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: flex;
+    text-align: center;
+    height: 30px;
+    width: 120px;
+    cursor: pointer;
+    background-color: var(--light-btn-bg);
+    border-radius: 10px;
+}
+
+.btn span {
+    text-decoration: none;
+    color: white;
+    width: 100%;
+    font-size: 25px;
+    margin: 0;
+    user-select: none;
+}
+
+.btn span:hover {
+    background-color: var(--light-btn-hover-bg);
+    border-radius: 10px;
+}
+
+/*
+            styles for figures
+*/
+
+.figures {
+    width: 80px;
+}
+
+.rookB {
+    background-image: url("img/RookB.png");
+    background-size: 80px;
+    cursor: pointer;
+    z-index: 11;
+}
+
+.knightB {
+    background-image: url("img/KnightB.png");
+    background-size: 80px;
+    cursor: pointer;
+    z-index: 11;
+}
+
+.bishopB {
+    background-image: url("img/BishopB.png");
+    background-size: 80px;
+    cursor: pointer;
+    z-index: 11;
+}
+
+.queenB {
+    background-image: url("img/queenB.png");
+    background-size: 80px;
+    cursor: pointer;
+    z-index: 11;
+}
+
+.kingB {
+    background-image: url("img/KingB.png");
+    background-size: 80px;
+    cursor: pointer;
+    z-index: 11;
+}
+
+.pawnB {
+    background-image: url("img/PawnB.png");
+    background-size: 80px;
+    cursor: pointer;
+    z-index: 11;
+}
+
+.rookW {
+    background-image: url("img/RookW.png");
+    background-size: 80px;
+    cursor: pointer;
+    z-index: 11;
+}
+
+.knightW {
+    background-image: url("img/KnightW.png");
+    background-size: 80px;
+    cursor: pointer;
+    z-index: 11;
+}
+
+.bishopW {
+    background-image: url("img/BishopW.png");
+    background-size: 80px;
+    cursor: pointer;
+    z-index: 11;
+}
+
+.queenW {
+    background-image: url("img/QueenW.png");
+    background-size: 80px;
+    cursor: pointer;
+    z-index: 11;
+}
+
+.kingW {
+    background-image: url("img/KingW.png");
+    background-size: 80px;
+    cursor: pointer;
+    z-index: 11;
+}
+
+.pawnW {
+    background-image: url("img/PawnW.png");
+    background-size: 80px;
+    cursor: pointer;
+    z-index: 11;
+}
+
+.empty {
+    background-size: 80px;
+}
+
+@media (max-width: 800px) {
+    .gameboard-bar {
+        width: 200px;
+    }
+}
+
+.avaliableMove {
+    mask-image: url();
+    //border-radius: 150px 150px 150px 150px;
+}
+
+.clock {
+    position: absolute;
+    top: 10px;
+    right: 300px;
+}
+
+.clockbar {
+    display: flex;
+    align-self: flex-end;
+    justify-content: flex-end;
+    background-color: white;
+    height: 40px;
+    width: 120px;
+    padding-right: 10px;
+    color: #000000;
+    border-radius: 10px;
+    align-items: center;
+}

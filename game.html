@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="PL-pl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="Łukasz Grynbaum">
+    <title>Chess</title>
+    <link rel="icon" href="img/icon.png">
+    <link rel="stylesheet" href="webside.css">
+    <link rel="stylesheet" href="game.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Signika+Negative:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="chess.js" async></script>
+</head>
+
+<!-- TODO:
+System blokady ruchów niezgodnych z możliwościami danej figury
+        (np. gdy gracz chce by król przerzedł o dwa pola, lub ustawić ją w miejscu innej jego figury)
+Zrobić system wskazywania możliwych ruchów po kliknięciu danej figury (podświetlanie pól na które może iść figura)
+        Wybrać metodę i stworzyć funkcjonalność przenoszenia figur na inne pole
+    i najtrudniejsze zrobić system ruchów bota i jego AI
+        można zrobić drugą stronę gdzie plansza co ruch obraca się, tak by dwóch graczy mogło grać na jednym urządzeniu
+-->
+
+<body>
+    <nav>
+        <div class="navbar">
+            <ul>
+            <img src="img/icon.jpg"></img>
+                <li><a href="main.html">Start</a></li>
+                <li><a href="game.html">Graj</a></li>
+                <li><a href="#">Ustawienia</a></li>
+            </ul>
+            <div class="motiveSwap">
+                <div class="onoffswitch">
+                    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" tabindex="0" checked>
+                    <label class="onoffswitch-label" for="myonoffswitch">
+                        <span class="onoffswitch-inner"></span>
+                        <span class="onoffswitch-switch"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="bar enemy">
+            <span>Komputer</span>
+            <div class="clock">
+                <div class="clockbar">
+                    10:00
+                </div>
+            </div>
+        </div>
+
+        <div class="gameboard-bar">
+            <span>Historia:</span>
+            <ul>
+                <li><span>[nr]. [kolor] [figura] [poz1] -> [poz2]</span></li>
+                <li><span>[nr]. [kolor] [figura] [poz1] -> [poz2]</span></li>
+                <li><span>[nr]. [kolor] [figura] [poz1] -> [poz2]</span></li>
+                <li><span>[nr]. [kolor] [figura] [poz1] -> [poz2]</span></li>
+                <li><span>[nr]. [kolor] [figura] [poz1] -> [poz2]</span></li>
+            </ul>
+            <div class="game-control"><!-- zarządzanie grą, start-restart, cofnij ruch, poddaj się -->
+                <div class="btn" onclick="restart()"><span>RESTART</span></div>
+                <div class="btn"><span>Cofnij</span></div>
+                <div class="btn" onclick="addFigure(58)"><span>xxx</span></div>
+                <div class="btn"><span>yyy</span></div>
+            </div>
+        </div>
+
+        <div class="app">
+            <div class="row">
+                <div id="11" class="box grid-w rookB"></div>
+                <div id="12" class="box grid-b knightB"></div>
+                <div id="13" class="box grid-w bishopB"></div>
+                <div id="14" class="box grid-b queenB"></div>
+                <div id="15" class="box grid-w kingB"></div>
+                <div id="16" class="box grid-b bishopB"></div>
+                <div id="17" class="box grid-w knightB"></div>
+                <div id="18" class="box grid-b rookB"></div>
+            </div>
+            <div class="row">
+                <div id="21" class="box grid-b pawnB"></div>
+                <div id="22" class="box grid-w pawnB"></div>
+                <div id="23" class="box grid-b pawnB"></div>
+                <div id="24" class="box grid-w pawnB"></div>
+                <div id="25" class="box grid-b pawnB"></div>
+                <div id="26" class="box grid-w pawnB"></div>
+                <div id="27" class="box grid-b pawnB"></div>
+                <div id="28" class="box grid-w pawnB"></div>
+            </div>
+            <div class="row">
+                <div id="31" class="box grid-w"></div>
+                <div id="32" class="box grid-b"></div>
+                <div id="33" class="box grid-w"></div>
+                <div id="34" class="box grid-b"></div>
+                <div id="35" class="box grid-w"></div>
+                <div id="36" class="box grid-b"></div>
+                <div id="37" class="box grid-w"></div>
+                <div id="38" class="box grid-b"></div>
+            </div>
+            <div class="row">
+                <div id="41" class="box grid-b"></div>
+                <div id="42" class="box grid-w"></div>
+                <div id="43" class="box grid-b"></div>
+                <div id="44" class="box grid-w"></div>
+                <div id="45" class="box grid-b"></div>
+                <div id="46" class="box grid-w"></div>
+                <div id="47" class="box grid-b"></div>
+                <div id="48" class="box grid-w"></div>
+            </div>
+            <div class="row">
+                <div id="51" class="box grid-w"></div>
+                <div id="52" class="box grid-b"></div>
+                <div id="53" class="box grid-w"></div>
+                <div id="54" class="box grid-b"></div>
+                <div id="55" class="box grid-w"></div>
+                <div id="56" class="box grid-b"></div>
+                <div id="57" class="box grid-w"></div>
+                <div id="58" class="box grid-b"></div>
+            </div>
+            <div class="row">
+                <div id="61" class="box grid-b"></div>
+                <div id="62" class="box grid-w"></div>
+                <div id="63" class="box grid-b"></div>
+                <div id="64" class="box grid-w"></div>
+                <div id="65" class="box grid-b"></div>
+                <div id="66" class="box grid-w"></div>
+                <div id="67" class="box grid-b"></div>
+                <div id="68" class="box grid-w"></div>
+            </div>
+            <div class="row">
+                <div id="71" class="box grid-w pawnW"></div>
+                <div id="72" class="box grid-b pawnW"></div>
+                <div id="73" class="box grid-w pawnW"></div>
+                <div id="74" class="box grid-b pawnW"></div>
+                <div id="75" class="box grid-w pawnW"></div>
+                <div id="76" class="box grid-b pawnW"></div>
+                <div id="77" class="box grid-w pawnW"></div>
+                <div id="78" class="box grid-b pawnW"></div>
+            </div>
+            <div class="row">
+                <div id="81" class="box grid-b rookW"></div>
+                <div id="82" class="box grid-w knightW"></div>
+                <div id="83" class="box grid-b bishopW"></div>
+                <div id="84" class="box grid-w queenW"></div>
+                <div id="85" class="box grid-b kingW"></div>
+                <div id="86" class="box grid-w bishopW"></div>
+                <div id="87" class="box grid-b knightW"></div>
+                <div id="88" class="box grid-w rookW"></div>
+            </div>
+
+        </div>
+        <div class="bar player">
+            <span>Ty</span>
+            <div class="clock">
+                <div class="clockbar">
+                    10:00
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

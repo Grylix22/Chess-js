@@ -1,0 +1,11 @@
+Gra powstaje bez użycia jakichkolwiek gotowych wzorów i API innych programistów.
+
+
+
+
+
+TODO:
+Możliwość zakończenia gry poprzez: zbicie króla oponenta, pat lub zasadą 75 ruchów
+Możliwość zrobienia roszady długiej lub krótkiej
+System obliczania i wyświetlania ich na planszy historii posunięć
+Sztuczną inteligencję dla gracza komputerowego
