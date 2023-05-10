@@ -1,24 +1,32 @@
-		#Witaj!
+		#Hi!
 		
 	##Wprowadzenie
-Projekt ten przedstawia grę przeglądarkową w szachy. Efektem tego projektu będzie możliwość zagrania zarówno przeciwko komputerowemu AI, jak i innemu graczowi.
-Stworzony w celu nauki javascriptu oraz poprawienia umiejętności pisania stron internetowych.
+This is the web chess game created with vanilla JS without any frameworks javascript or css.
+Target of the project was to learn and above all to play with the code.
+This was my first js project. The game will be developed in spare time and/or between other projects.
 
-	##Technologie
+	##Tech
 HTML
 CSS
 JAVASCRIPT
+(multiplayer propably in PubNub)
 
-	##Status projektu
-Przygotowana jest plansza gry, figury oraz możliwość poruszania figur oraz zbijania figur oponenta.
-W najbliższym czasie zaimplementowane zostanie ograniczenie ruchów figur zgodnie z oficjalnymi zasadami obowiązującymi w szachach.
+	##Project status
+  Prepared:
+- gameboard
+- graphics and classes figures
+- opportunity figures movement
+- capture enemy figures
+- history movement
+
 
 TODO:
-Uporządkować kod CSS oraz JS
-Zapewnić wsparcie starszym przeglądarkom
-Warunki zakończenia gry (zwycięstwo lub porażka)
-Mechanikę roszady
-Historię posunięć
-Wypełnić stronę startową
-Przetestować grę pod kątem błędów
-Sztuczną inteligencję dla gracza komputerowego
+organise CSS and JS code
+support older browsers
+mate, check-mate and castle events
+add content to main page
+pest and debug game
+add multiplayer mode
+transform js code to objective
+add gamestatment save (for join the session not restart game)
+create AI enemy and logic
